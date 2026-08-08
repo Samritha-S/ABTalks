@@ -1,0 +1,379 @@
+/* Dashboard Styles */
+
+.dashboard {
+  background: var(--bg-base);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(12,13,16,0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.greeting {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.userName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.notifBtn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+.notifBtn:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.15); }
+
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Warning Banner ── */
+.warningBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  animation: fadeInUp 0.4s ease;
+}
+.warningIcon { font-size: 20px; }
+.warningTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-amber);
+}
+.warningDesc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+/* ── First Day Card ── */
+.firstDayCard {
+  background: linear-gradient(135deg, rgba(245,197,66,0.08) 0%, rgba(34,197,94,0.05) 100%);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  text-align: center;
+  animation: fadeInUp 0.4s ease;
+}
+.firstDayEmoji { font-size: 40px; margin-bottom: 8px; }
+.firstDayTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.firstDayDesc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+/* ── Streak Card ── */
+.streakCard {
+  background: linear-gradient(135deg, #1a1c21 0%, #1f2028 100%);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  animation: fadeInUp 0.4s ease;
+  box-shadow: var(--shadow-glow-yellow);
+}
+.streakMain {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.streakFire { font-size: 32px; animation: streakPulse 2s infinite; }
+.streakNumber {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--accent-yellow);
+  letter-spacing: -0.04em;
+  animation: countUp 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+.streakLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+  align-self: flex-end;
+  padding-bottom: 8px;
+}
+.streakDivider { height: 1px; background: var(--border-subtle); margin-bottom: 16px; }
+.streakStats {
+  display: flex;
+  gap: 0;
+}
+.streakStat {
+  flex: 1;
+  text-align: center;
+  padding: 0 8px;
+  border-right: 1px solid var(--border-subtle);
+}
+.streakStat:last-child { border-right: none; }
+.streakStatValue {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+.streakStatLabel { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* ── Section Labels ── */
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ── Today's Task ── */
+.todaySection {}
+.todayCard {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  transition: all var(--transition-base);
+  animation: fadeInUp 0.4s ease 0.1s both;
+}
+.todayCard:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow-yellow);
+  transform: translateY(-2px);
+}
+.todayCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.todayCardBadges { display: flex; gap: 6px; }
+.todayArrow { color: var(--accent-yellow); font-size: 18px; }
+.todayTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+.todaySubtitle { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+.todayMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.todayTags { display: flex; gap: 4px; }
+.startBtn { width: 100%; }
+
+/* ── Progress ── */
+.progressSection {}
+.progressCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: fadeInUp 0.4s ease 0.15s both;
+}
+.progressRingWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+.progressSvg { display: block; }
+.progressCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.progressPct {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--accent-yellow);
+  line-height: 1;
+}
+.progressDays { font-size: 10px; color: var(--text-muted); }
+.progressInfo { flex: 1; }
+.progressTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.progressSub { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; }
+.progressSub strong { color: var(--accent-yellow); }
+.progressBar {
+  height: 5px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-yellow), #f7ce5a);
+  border-radius: var(--radius-full);
+  transition: width 1s ease;
+}
+
+/* ── Week Calendar ── */
+.weekSection {}
+.weekGrid {
+  display: flex;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 14px 12px;
+  animation: fadeInUp 0.4s ease 0.2s both;
+}
+.weekDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.weekDayLabel {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.weekDot {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+.weekDotDone {
+  background: var(--accent-green-dim);
+  color: var(--accent-green);
+  border: 1.5px solid rgba(34,197,94,0.3);
+}
+.weekDotMissed {
+  background: rgba(239,68,68,0.1);
+  color: var(--accent-red);
+  border: 1.5px solid rgba(239,68,68,0.2);
+}
+.weekDotToday {
+  background: var(--accent-yellow);
+  color: var(--bg-base);
+  border: none;
+  font-size: 12px;
+  animation: streakPulse 2s infinite;
+}
+
+/* ── Standing ── */
+.standingSection {}
+.standingCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  animation: fadeInUp 0.4s ease 0.25s both;
+}
+.standingRank {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.rankBadge {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--accent-yellow);
+  letter-spacing: -0.03em;
+}
+.rankLabel { font-size: 13px; color: var(--text-secondary); }
+.standingBar {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-full);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.standingBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-green), #4ade80);
+  border-radius: var(--radius-full);
+  transition: width 1.2s ease;
+}
+.standingDesc { font-size: 13px; color: var(--text-secondary); }
+.standingDesc strong { color: var(--accent-green); }
+
+/* ── Achievements ── */
+.achieveSection {}
+.badgeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  animation: fadeInUp 0.4s ease 0.3s both;
+}
+.badgeItem {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 12px 8px;
+  text-align: center;
+  transition: all var(--transition-base);
+}
+.badgeItem:not(.badgeLocked):hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+}
+.badgeLocked { opacity: 0.35; }
+.badgeIcon { font-size: 24px; margin-bottom: 4px; }
+.badgeName {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
