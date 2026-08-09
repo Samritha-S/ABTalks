@@ -96,6 +96,40 @@ export default function ProfilePage() {
           <Image src={LOGO} alt="AB Talks" width={110} height={36} style={{ objectFit: 'contain' }} />
         </div>
 
+        {/* ── Sidebar Constellation ── */}
+        <div className={styles.sidebarConstellationWrap} aria-hidden="true">
+          <svg viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style={{ width: '100%', height: 'auto', display: 'block' }}>
+            {/* Stars */}
+            <circle cx="40"  cy="18"  r="2.5" fill="#fcd34d" opacity="0.9" />
+            <circle cx="110" cy="8"   r="1.8" fill="#ffffff" opacity="0.5" />
+            <circle cx="185" cy="25"  r="2.2" fill="#fcd34d" opacity="0.75" />
+            <circle cx="70"  cy="55"  r="1.5" fill="#ffffff" opacity="0.4" />
+            <circle cx="155" cy="60"  r="2.8" fill="#fcd34d" opacity="0.85" />
+            <circle cx="25"  cy="90"  r="1.8" fill="#ffffff" opacity="0.35" />
+            <circle cx="100" cy="100" r="2"   fill="#fcd34d" opacity="0.7" />
+            <circle cx="195" cy="95"  r="1.5" fill="#ffffff" opacity="0.45" />
+            <circle cx="55"  cy="135" r="2.2" fill="#fcd34d" opacity="0.6" />
+            <circle cx="170" cy="145" r="1.8" fill="#ffffff" opacity="0.4" />
+            <circle cx="130" cy="150" r="1.2" fill="#fcd34d" opacity="0.5" />
+            {/* Constellation lines */}
+            <line x1="40"  y1="18"  x2="110" y2="8"   stroke="rgba(252,211,77,0.18)" strokeWidth="0.8"/>
+            <line x1="110" y1="8"   x2="185" y2="25"  stroke="rgba(255,255,255,0.1)" strokeWidth="0.8"/>
+            <line x1="185" y1="25"  x2="155" y2="60"  stroke="rgba(252,211,77,0.2)"  strokeWidth="0.8"/>
+            <line x1="40"  y1="18"  x2="70"  y2="55"  stroke="rgba(255,255,255,0.08)" strokeWidth="0.8"/>
+            <line x1="70"  y1="55"  x2="155" y2="60"  stroke="rgba(252,211,77,0.15)" strokeWidth="0.8"/>
+            <line x1="155" y1="60"  x2="195" y2="95"  stroke="rgba(255,255,255,0.1)" strokeWidth="0.8"/>
+            <line x1="70"  y1="55"  x2="25"  y2="90"  stroke="rgba(252,211,77,0.12)" strokeWidth="0.8"/>
+            <line x1="25"  y1="90"  x2="100" y2="100" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8"/>
+            <line x1="100" y1="100" x2="195" y2="95"  stroke="rgba(252,211,77,0.1)"  strokeWidth="0.8"/>
+            <line x1="25"  y1="90"  x2="55"  y2="135" stroke="rgba(252,211,77,0.15)" strokeWidth="0.8"/>
+            <line x1="100" y1="100" x2="130" y2="150" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8"/>
+            <line x1="195" y1="95"  x2="170" y2="145" stroke="rgba(252,211,77,0.12)" strokeWidth="0.8"/>
+            <line x1="55"  y1="135" x2="130" y2="150" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8"/>
+            <line x1="130" y1="150" x2="170" y2="145" stroke="rgba(252,211,77,0.1)"  strokeWidth="0.8"/>
+          </svg>
+        </div>
+
         <nav className={styles.navList}>
           <Link href="/dashboard" className={styles.navItem}>
             <span className={styles.navIcon}>
@@ -134,6 +168,14 @@ export default function ProfilePage() {
           </Link>
         </nav>
 
+        {/* Mini user card above sign-out */}
+        <div className={styles.sidebarUserCard}>
+          <div className={styles.sidebarAvatar}>{initials}</div>
+          <div className={styles.sidebarUserInfo}>
+            <div className={styles.sidebarUserName}>{student.name}</div>
+            <div className={styles.sidebarUserSub}>Day {student.currentDay} · 🔥{student.currentStreak}</div>
+          </div>
+        </div>
         <div className={styles.navDivider} />
         <button className={styles.signOutBtn} onClick={handleSignOut} id="sidebar-signout">
           <span className={styles.navIcon}>
