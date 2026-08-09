@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 // ── Mock users ──────────────────────────────────────────────
@@ -47,7 +48,7 @@ export default function LoginPage() {
     <div className={styles.page}>
       {/* Left panel — branding */}
       <div className={styles.leftPanel}>
-        <div className={styles.brandLogo}>ABTalks</div>
+        <Image src="/abtalks-logo.png" alt="AB Talks" width={140} height={46} className={styles.brandLogo} priority />
         <div className={styles.brandQuote}>
           <p className={styles.quoteText}>"60 days. One commit a day. That's all it takes."</p>
           <div className={styles.quoteStats}>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { tracks, testimonials, builderAvatars } from '@/data/mockData';
 import styles from './page.module.css';
@@ -24,7 +25,7 @@ export default function LandingPage() {
       {/* ── Nav ── */}
       <nav className={styles.nav}>
         <div className={styles.navInner}>
-          <span className={styles.logo}>ABTalks</span>
+          <Image src="/abtalks-logo.png" alt="AB Talks" width={110} height={36} className={styles.logoImg} priority />
           <button
             className={styles.menuBtn}
             onClick={() => setMenuOpen(true)}
@@ -474,7 +475,10 @@ export default function LandingPage() {
 
       {/* ── Footer ── */}
       <footer className={styles.footer}>
-        <span className={styles.footerLogo}>ABTalks</span>
+        <div className={styles.footerLogoWrap}>
+          <Image src="/abtalks-icon.png" alt="AB Talks icon" width={32} height={32} className={styles.footerIcon} />
+          <Image src="/abtalks-logo.png" alt="AB Talks" width={90} height={30} className={styles.footerLogoImg} />
+        </div>
         <span className={styles.footerTag}>Built for Indian college students.</span>
         <div className={styles.footerLinks}>
           <a href="#">Privacy</a>

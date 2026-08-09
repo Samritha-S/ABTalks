@@ -81,6 +81,12 @@
   letter-spacing: -0.03em;
   color: var(--text-primary);
 }
+.logoImg {
+  display: block;
+  object-fit: contain;
+  height: 32px;
+  width: auto;
+}
 .menuBtn {
   display: flex;
   flex-direction: column;
@@ -568,6 +574,24 @@
   font-weight: 800;
   font-size: 16px;
   color: var(--text-primary);
+}
+.footerLogoWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footerLogoImg {
+  display: block;
+  object-fit: contain;
+  height: 26px;
+  width: auto;
+}
+.footerIcon {
+  display: block;
+  object-fit: contain;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
 }
 .footerTag {
   font-size: 12px;

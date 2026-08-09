@@ -186,11 +186,11 @@
   }
 
   .brandLogo {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 26px;
-    letter-spacing: -0.04em;
-    color: var(--text-primary);
+    display: block;
+    object-fit: contain;
+    height: 42px;
+    width: auto;
+    margin-bottom: 8px;
   }
 
   .brandQuote {
