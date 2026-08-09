@@ -13,12 +13,19 @@ const MOCK_USERS = [
   { email: 'samritha@abtalks.dev',password: 'abtalks',    name: 'Samritha S'    },
 ];
 
+// Mock Google accounts for the picker
+const GOOGLE_ACCOUNTS = [
+  { name: 'Samritha S', email: 'samritha.s1106@gmail.com', initials: 'S', color: '#1a73e8' },
+  { name: 'Use another account', email: '', initials: '+', color: '#5f6368' },
+];
+
 export default function LoginPage() {
   const router = useRouter();
   const [email,    setEmail]    = useState('');
   const [password, setPassword] = useState('');
   const [error,    setError]    = useState('');
   const [loading,  setLoading]  = useState(false);
+  const [googleOpen, setGoogleOpen] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -122,14 +129,65 @@ export default function LoginPage() {
             <p className={styles.formSub}>Sign in to continue your streak.</p>
           </div>
 
+          {/* Google Account Picker Modal */}
+          {googleOpen && (
+            <div className={styles.googleOverlay} onClick={() => setGoogleOpen(false)}>
+              <div className={styles.googlePicker} onClick={e => e.stopPropagation()}>
+                {/* Google logo */}
+                <div className={styles.pickerHeader}>
+                  <svg viewBox="0 0 75 24" width="75" height="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M37.9 10.4h-9.1v2.8h6.3c-.3 3.3-3 4.7-6.3 4.7-3.8 0-7-3-7-6.9s3.2-7 7-7c3 0 4.8 1.9 4.8 1.9l2-2s-2.5-2.7-6.9-2.7C23.2 1.2 18.5 6 18.5 12s4.6 10.8 10.5 10.8c5.4 0 9.3-3.7 9.3-9.2 0-.8-.4-3.2-.4-3.2z" fill="#4285F4"/>
+                    <path d="M50 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 9.7c-2 0-3.7-1.6-3.7-3.7S48 8.3 50 8.3s3.7 1.6 3.7 3.7-1.7 3.7-3.7 3.7z" fill="#EA4335"/>
+                    <path d="M63.5 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 9.7c-2 0-3.7-1.6-3.7-3.7s1.7-3.7 3.7-3.7 3.7 1.6 3.7 3.7-1.7 3.7-3.7 3.7z" fill="#FBBC05"/>
+                    <path d="M74.5 6.4H72v-3h-2.3v3H67v2.2h2.7v6.8c0 3 1.6 4 4.4 4 1 0 2.1-.3 2.1-.3V17s-.8.2-1.5.2c-1.4 0-2.2-.6-2.2-2v-6.6h3.9V6.4z" fill="#34A853"/>
+                  </svg>
+                  <span className={styles.pickerTitle}>Sign in</span>
+                  <span className={styles.pickerSub}>to continue to ABTalks</span>
+                </div>
+                <div className={styles.pickerAccounts}>
+                  {GOOGLE_ACCOUNTS.map((acc, i) => (
+                    <button
+                      key={i}
+                      className={styles.pickerAccount}
+                      onClick={() => {
+                        if (!acc.email) return; // "Use another account" — no action
+                        setLoading(true);
+                        setGoogleOpen(false);
+                        setTimeout(() => {
+                          localStorage.setItem('abtalks_logged_in', 'true');
+                          router.push('/dashboard');
+                        }, 600);
+                      }}
+                    >
+                      <div
+                        className={styles.pickerAvatar}
+                        style={{ background: acc.color }}
+                      >
+                        {acc.initials}
+                      </div>
+                      <div className={styles.pickerAccountInfo}>
+                        <div className={styles.pickerName}>{acc.name}</div>
+                        {acc.email && <div className={styles.pickerEmail}>{acc.email}</div>}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                <div className={styles.pickerFooter}>
+                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                  <span>·</span>
+                  <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className={styles.socialAuthBox}>
             <button
-              onClick={() => {
-                window.location.href = 'https://accounts.google.com';
-              }}
+              onClick={() => setGoogleOpen(true)}
               type="button"
               className={styles.googleBtn}
               disabled={loading}
+              id="google-login-btn"
               id="google-login-btn"
             >
               <svg className={styles.googleIcon} viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
