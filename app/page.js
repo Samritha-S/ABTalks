@@ -53,6 +53,31 @@ export default function LandingPage() {
 
       {/* ── Hero ── */}
       <section className={styles.hero}>
+        {/* Constellations */}
+        <svg className={`${styles.constellation} ${styles.constelLeft}`} viewBox="0 0 200 200" fill="none">
+          <circle cx="30" cy="50" r="3" fill="#fcd34d" />
+          <circle cx="80" cy="30" r="2.5" fill="#ffffff" opacity="0.6" />
+          <circle cx="120" cy="80" r="3" fill="#fcd34d" />
+          <circle cx="60" cy="120" r="2.5" fill="#ffffff" opacity="0.8" />
+          <circle cx="150" cy="140" r="2" fill="#ffffff" opacity="0.4" />
+          <line x1="30" y1="50" x2="80" y2="30" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+          <line x1="80" y1="30" x2="120" y2="80" stroke="rgba(252,211,77,0.15)" strokeWidth="1" />
+          <line x1="120" y1="80" x2="60" y2="120" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+          <line x1="60" y1="120" x2="30" y2="50" stroke="rgba(252,211,77,0.1)" strokeWidth="1" />
+          <line x1="120" y1="80" x2="150" y2="140" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+        </svg>
+
+        <svg className={`${styles.constellation} ${styles.constelRight}`} viewBox="0 0 200 200" fill="none">
+          <circle cx="160" cy="40" r="2.5" fill="#ffffff" opacity="0.7" />
+          <circle cx="110" cy="70" r="3" fill="#fcd34d" />
+          <circle cx="140" cy="130" r="2.5" fill="#ffffff" opacity="0.5" />
+          <circle cx="70" cy="110" r="3" fill="#fcd34d" />
+          <line x1="160" y1="40" x2="110" y2="70" stroke="rgba(252,211,77,0.12)" strokeWidth="1" />
+          <line x1="110" y1="70" x2="140" y2="130" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+          <line x1="110" y1="70" x2="70" y2="110" stroke="rgba(252,211,77,0.15)" strokeWidth="1" />
+          <line x1="70" y1="110" x2="140" y2="130" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+        </svg>
+
         <div className={styles.heroLabel}>
           <span className={styles.dot} />
           BUILD IN PUBLIC. GROW TOGETHER.
@@ -73,6 +98,7 @@ export default function LandingPage() {
             Browse tracks
           </a>
         </div>
+
 
         {/* Social Proof Strip */}
         <div className={styles.socialProof}>
@@ -344,6 +370,14 @@ export default function LandingPage() {
 
       {/* ── Final CTA ── */}
       <section className={styles.finalCta}>
+        <svg className={`${styles.constellation} ${styles.constelCta}`} viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="50" r="3" fill="#fcd34d" />
+          <circle cx="50" cy="110" r="2.5" fill="#ffffff" opacity="0.6" />
+          <circle cx="150" cy="110" r="2.5" fill="#ffffff" opacity="0.8" />
+          <line x1="100" y1="50" x2="50" y2="110" stroke="rgba(252,211,77,0.12)" strokeWidth="1" />
+          <line x1="100" y1="50" x2="150" y2="110" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+          <line x1="50" y1="110" x2="150" y2="110" stroke="rgba(252,211,77,0.08)" strokeWidth="0.8" />
+        </svg>
         <h2 className={styles.finalCtaTitle}>Your next 60 days<br />start today.</h2>
         <p className={styles.finalCtaSub}>Free to join. No experience required. Just show up.</p>
         <Link href="/register" className={`btn btn-primary btn-lg btn-full ${styles.finalCtaBtn}`} id="final-cta-btn">

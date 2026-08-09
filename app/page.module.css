@@ -146,6 +146,26 @@
   background-size: 40px 40px;
   background-position: center top;
 }
+.constellation {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+.constelLeft {
+  left: -20px;
+  top: 10px;
+  width: 140px;
+  height: 140px;
+  opacity: 0.7;
+}
+.constelRight {
+  right: -20px;
+  bottom: 80px;
+  width: 140px;
+  height: 140px;
+  opacity: 0.7;
+}
+
 .heroLabel {
   display: flex;
   align-items: center;
@@ -475,6 +495,16 @@
   padding: 40px 16px;
   text-align: center;
   border-top: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+.constelCta {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  opacity: 0.65;
 }
 .finalCtaTitle {
   font-size: 30px;
@@ -557,6 +587,22 @@
       linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     background-size: 50px 50px;
+  }
+  .constelLeft {
+    left: 40px;
+    top: 15%;
+    width: 280px;
+    height: 280px;
+  }
+  .constelRight {
+    right: 40px;
+    bottom: 15%;
+    width: 280px;
+    height: 280px;
+  }
+  .constelCta {
+    width: 500px;
+    height: 500px;
   }
   .heroLabel {
     font-size: 13px;
