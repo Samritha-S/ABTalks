@@ -284,14 +284,16 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: var(--accent-yellow-dim); color: var(--accent-yellow); }
 
 /* ─── Desktop centering ─── */
-@media (min-width: 500px) {
-  body { background: #08080a; }
+@media (min-width: 768px) {
+  body { background: var(--bg-base); }
   .app-shell {
-    max-width: var(--max-mobile);
+    max-width: 1200px;
     margin: 0 auto;
     min-height: 100dvh;
     background: var(--bg-base);
     position: relative;
-    box-shadow: 0 0 80px rgba(0,0,0,0.6);
+    box-shadow: none;
+    display: flex;
+    flex-direction: row; /* For sidebar layout */
   }
 }

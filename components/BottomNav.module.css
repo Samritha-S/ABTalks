@@ -64,3 +64,50 @@
   background: var(--accent-yellow);
   border-radius: 0 0 var(--radius-sm) var(--radius-sm);
 }
+
+/* ── Desktop Sidebar Mode ── */
+@media (min-width: 768px) {
+  .bottomNav {
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 600px); /* Align with left edge of 1200px app-shell */
+    transform: none;
+    width: 250px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 40px;
+    padding-bottom: 0;
+    border-top: none;
+    border-right: 1px solid var(--border-card);
+    background: transparent;
+  }
+  
+  /* Fallback if screen is smaller than 1200px but larger than 768px */
+  @media (max-width: 1200px) {
+    .bottomNav {
+      left: 0;
+    }
+  }
+
+  .navItem {
+    flex: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 16px 32px;
+  }
+
+  .navLabel {
+    font-size: 14px;
+    margin-left: 12px;
+  }
+
+  .navIndicator {
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 3px;
+    height: 100%;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+}

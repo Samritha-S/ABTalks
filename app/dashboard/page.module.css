@@ -96,6 +96,8 @@
   margin-bottom: 8px;
 }
 .firstDayDesc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.achievementDesc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.lockedText { color: var(--text-muted); font-style: italic; font-size: 12px; margin-top: 4px; }
 
 /* ── Streak Card ── */
 .streakCard {
@@ -376,4 +378,18 @@
   color: var(--text-secondary);
   letter-spacing: 0.01em;
   line-height: 1.3;
+}
+
+/* ── Desktop Optimization ── */
+@media (min-width: 768px) {
+  .header {
+    padding: 24px 32px;
+  }
+  .content {
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
 }
