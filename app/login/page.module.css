@@ -169,8 +169,8 @@
     width: 45%;
     max-width: 560px;
     padding: 48px 56px;
-    background: linear-gradient(160deg, #1e293b 0%, #0f172a 60%, #0a1628 100%);
-    border-right: 1px solid var(--border-card);
+    background: #0c0d10;
+    border-right: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
   }
@@ -250,3 +250,58 @@
   .formTitle { font-size: 36px; }
   .formSub { font-size: 16px; }
 }
+
+/* ── Google Auth & Divider Styles ── */
+.socialAuthBox {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.googleBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.googleBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.googleIcon {
+  flex-shrink: 0;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 0;
+  gap: 12px;
+  width: 100%;
+}
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+.dividerText {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
