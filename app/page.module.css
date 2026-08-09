@@ -251,6 +251,7 @@
   letter-spacing: 0.05em;
   min-width: 28px;
   margin-top: 2px;
+  flex-shrink: 0;
 }
 .stepTitle {
   font-family: var(--font-display);
@@ -485,9 +486,25 @@
     gap: 24px;
     margin-top: 32px;
   }
-  .step { padding: 36px 28px; }
-  .stepNum { font-size: 48px; }
-  .stepTitle { font-size: 18px; }
+  /* On desktop, stack the number above title/desc so they don't overlap */
+  .step {
+    flex-direction: column;
+    gap: 12px;
+    padding: 36px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    transition: border-color var(--transition-base);
+  }
+  .step:hover { border-color: rgba(255,255,255,0.12); }
+  .stepNum {
+    font-size: 52px;
+    line-height: 1;
+    min-width: auto;
+    margin-top: 0;
+    display: block;
+  }
+  .stepTitle { font-size: 18px; margin-bottom: 8px; }
   .stepDesc { font-size: 15px; }
 
   /* ── Testimonials Grid ── */
