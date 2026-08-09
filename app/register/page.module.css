@@ -103,11 +103,12 @@
   .leftPanel {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 64px;
     width: 45%;
     max-width: 560px;
     padding: 48px 56px;
-    background: #0c0d10;
+    background: #000000;
     border-right: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
