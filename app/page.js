@@ -218,15 +218,22 @@ export default function LandingPage() {
                       {track.outcome}
                     </div>
 
-                    <a
-                      href="/login"
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const isLoggedIn = localStorage.getItem('abtalks_logged_in');
+                        if (isLoggedIn) {
+                          window.location.href = '/dashboard';
+                        } else {
+                          window.location.href = '/login';
+                        }
+                      }}
                       className={`btn btn-primary ${styles.trackCta}`}
-                      style={{ background: track.color, color: '#060913' }}
-                      onClick={e => e.stopPropagation()}
+                      style={{ background: track.color, color: '#060913', width: '100%', border: 'none' }}
                       id={`track-enroll-${track.id}`}
                     >
                       Enroll in this track →
-                    </a>
+                    </button>
                   </div>
                 )}
               </div>
