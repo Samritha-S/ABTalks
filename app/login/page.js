@@ -28,6 +28,7 @@ export default function LoginPage() {
     setTimeout(() => {
       const user = MOCK_USERS.find(u => u.email === email.toLowerCase() && u.password === password);
       if (user) {
+        localStorage.setItem('abtalks_logged_in', 'true');
         router.push('/dashboard');
       } else {
         setError('Incorrect email or password. Try a mock account below.');

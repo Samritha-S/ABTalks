@@ -49,9 +49,16 @@ export default function ProfilePage() {
         </div>
 
         <div style={{ textAlign: 'center' }}>
-          <Link href="/" className="btn btn-ghost" style={{ width: '100%', color: 'var(--accent-red)', padding: '14px', display: 'flex' }}>
+          <button
+            onClick={() => {
+              localStorage.removeItem('abtalks_logged_in');
+              window.location.href = '/';
+            }}
+            className="btn btn-ghost"
+            style={{ width: '100%', color: 'var(--accent-red)', padding: '14px', display: 'flex', justifyContent: 'center' }}
+          >
             Sign Out
-          </Link>
+          </button>
         </div>
       </div>
 

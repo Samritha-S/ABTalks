@@ -10,7 +10,15 @@ export default function RegisterPage() {
         <input type="text" placeholder="Full Name" className="input-field" />
         <input type="email" placeholder="Email" className="input-field" />
         <input type="password" placeholder="Password" className="input-field" />
-        <Link href="/dashboard" className="btn btn-primary btn-full">Create Account</Link>
+        <button
+          onClick={() => {
+            localStorage.setItem('abtalks_logged_in', 'true');
+            window.location.href = '/dashboard';
+          }}
+          className="btn btn-primary btn-full"
+        >
+          Create Account
+        </button>
       </div>
       
       <p style={{ marginTop: '2rem', color: 'var(--text-secondary)' }}>

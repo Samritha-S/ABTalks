@@ -8,6 +8,7 @@ import styles from './page.module.css';
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const [openTrack, setOpenTrack] = useState(null);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -94,24 +95,143 @@ export default function LandingPage() {
       <section className={styles.section} id="tracks">
         <div className={styles.sectionHeader}>
           <span className={`badge badge-subtle`}>TRACKS OPEN NOW</span>
+          <h2 className={styles.sectionTitle}>Choose your path</h2>
         </div>
         <div className={styles.tracksList}>
-          {tracks.map(track => (
-            <Link href="/dashboard" key={track.id} className={styles.trackCard} id={`track-${track.id}`}>
-              <div className={styles.trackLeft}>
-                <div className={styles.trackIcon} style={{ background: `${track.color}1a`, color: track.color }}>
-                  {track.icon}
+          {[
+            {
+              id: 'fullstack',
+              icon: '</>',
+              color: '#22c55e',
+              name: '60-Day Full Stack Dev',
+              tagline: 'Enrolling now',
+              description: 'One real task daily, public streak',
+              featured: false,
+              duration: '60 days',
+              difficulty: 'Beginner → Intermediate',
+              commitment: '2–3 hrs/day',
+              stack: ['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'MongoDB'],
+              whatYouBuild: [
+                'A personal portfolio with live projects',
+                'A REST API with authentication',
+                'A full-stack CRUD app deployed to production',
+                'A real-time chat application using Socket.io',
+              ],
+              outcome: 'Walk away with 4 deployed projects, a solid GitHub history, and 60 LinkedIn posts that recruiters can verify.',
+            },
+            {
+              id: 'ai',
+              icon: '✦',
+              color: '#fcd34d',
+              name: '31-Day AI Cohort',
+              tagline: 'Featured',
+              description: 'RAG, agents and MCP, project by project',
+              featured: true,
+              duration: '31 days',
+              difficulty: 'Intermediate',
+              commitment: '2–4 hrs/day',
+              stack: ['Python', 'LangChain', 'OpenAI API', 'Pinecone', 'FastAPI', 'Streamlit'],
+              whatYouBuild: [
+                'A RAG chatbot over your own documents',
+                'An AI agent with tool use and memory',
+                'A production-ready MCP server',
+                'A multi-modal AI app with vision + text',
+              ],
+              outcome: 'Become confident in building real LLM applications. Portfolio proof that stands out in the AI hiring wave.',
+            },
+            {
+              id: 'dsa',
+              icon: '{}',
+              color: '#a78bfa',
+              name: '45-Day DSA Sprint',
+              tagline: 'Starting Sept 1',
+              description: 'LeetCode-style problems, daily explanations',
+              featured: false,
+              duration: '45 days',
+              difficulty: 'Beginner → Advanced',
+              commitment: '1–2 hrs/day',
+              stack: ['Python', 'Java', 'C++', 'Arrays', 'Trees', 'Graphs', 'DP'],
+              whatYouBuild: [
+                'Solve 100+ handpicked patterns (not random)',
+                'A documented problem journal with approaches',
+                'Timed mock interviews in the final week',
+                'A personal cheat-sheet of key patterns',
+              ],
+              outcome: 'Interview-ready fundamentals. Solve problems with structure, not luck — and explain your thinking out loud.',
+            },
+          ].map(track => {
+            const isOpen = openTrack === track.id;
+            return (
+              <div
+                key={track.id}
+                className={`${styles.trackCard} ${isOpen ? styles.trackCardOpen : ''}`}
+                id={`track-${track.id}`}
+                onClick={() => setOpenTrack(isOpen ? null : track.id)}
+                role="button"
+                aria-expanded={isOpen}
+              >
+                {/* ── Header row ── */}
+                <div className={styles.trackHeader}>
+                  <div className={styles.trackLeft}>
+                    <div className={styles.trackIcon} style={{ background: `${track.color}1a`, color: track.color }}>
+                      {track.icon}
+                    </div>
+                    <div>
+                      <div className={styles.trackName}>{track.name}</div>
+                      <div className={styles.trackDesc}>{track.description}</div>
+                      {track.featured
+                        ? <span className="badge badge-yellow" style={{ marginTop: '6px' }}>FEATURED</span>
+                        : <span className={styles.trackTagline}>{track.tagline}</span>
+                      }
+                    </div>
+                  </div>
+                  <div className={`${styles.trackChevron} ${isOpen ? styles.trackChevronOpen : ''}`} style={{ color: track.color }}>
+                    ↓
+                  </div>
                 </div>
-                <div>
-                  <div className={styles.trackName}>{track.name}</div>
-                  <div className={styles.trackDesc}>{track.description}</div>
-                  {track.featured && <span className="badge badge-yellow" style={{marginTop: '6px'}}>Featured</span>}
-                  {!track.featured && <span className={styles.trackTagline}>{track.tagline}</span>}
-                </div>
+
+                {/* ── Collapsible content ── */}
+                {isOpen && (
+                  <div className={styles.trackBody} onClick={e => e.stopPropagation()}>
+                    <div className={styles.trackMeta}>
+                      <div className={styles.metaPill}>⏱ {track.duration}</div>
+                      <div className={styles.metaPill}>📶 {track.difficulty}</div>
+                      <div className={styles.metaPill}>🕐 {track.commitment}</div>
+                    </div>
+
+                    <div className={styles.trackStack}>
+                      {track.stack.map(s => <span key={s} className="tag">{s}</span>)}
+                    </div>
+
+                    <div className={styles.trackBuilds}>
+                      <div className={styles.trackBuildsLabel}>What you'll build</div>
+                      {track.whatYouBuild.map((item, i) => (
+                        <div key={i} className={styles.trackBuildItem}>
+                          <span className={styles.buildDot} style={{ background: track.color }} />
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className={styles.trackOutcome}>
+                      <span className={styles.outcomeIcon}>🎯</span>
+                      {track.outcome}
+                    </div>
+
+                    <a
+                      href="/login"
+                      className={`btn btn-primary ${styles.trackCta}`}
+                      style={{ background: track.color, color: '#060913' }}
+                      onClick={e => e.stopPropagation()}
+                      id={`track-enroll-${track.id}`}
+                    >
+                      Enroll in this track →
+                    </a>
+                  </div>
+                )}
               </div>
-              <div className={styles.trackArrow} style={{ color: track.color }}>↗</div>
-            </Link>
-          ))}
+            );
+          })}
         </div>
       </section>
 

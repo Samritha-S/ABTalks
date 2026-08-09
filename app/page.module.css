@@ -226,26 +226,35 @@
 .tracksList {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .trackCard {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
-  padding: 14px;
+  padding: 16px;
   transition: all var(--transition-base);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 .trackCard:hover {
-  border-color: var(--accent-yellow);
+  border-color: rgba(255, 255, 255, 0.15);
   background: var(--bg-card-hover);
-  transform: translateY(-2px);
+}
+.trackCardOpen {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--bg-card-hover);
+}
+.trackHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 .trackLeft {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
 }
 .trackIcon {
@@ -262,7 +271,7 @@
 .trackName {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-primary);
   margin-bottom: 2px;
 }
@@ -277,10 +286,85 @@
   color: var(--accent-green);
   font-weight: 600;
 }
-.trackArrow {
+.trackChevron {
   font-size: 18px;
   flex-shrink: 0;
-  opacity: 0.7;
+  transition: transform var(--transition-base);
+}
+.trackChevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Collapsible content */
+.trackBody {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  cursor: default;
+}
+.trackMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.metaPill {
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+.trackStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.trackBuilds {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.trackBuildsLabel {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+.trackBuildItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+.buildDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.trackOutcome {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-card);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.outcomeIcon {
+  margin-right: 6px;
+}
+.trackCta {
+  width: 100%;
+  margin-top: 6px;
+  font-weight: 700;
 }
 
 /* ── Steps ── */
@@ -512,10 +596,19 @@
 
   /* ── Tracks Grid ── */
   .tracksList {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     margin-top: 32px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .proofRow {
+    grid-template-columns: 1fr auto 1fr;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* ── How it Works Grid ── */

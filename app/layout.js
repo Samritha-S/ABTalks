@@ -1,4 +1,5 @@
 import './globals.css';
+import ClientSecurityProvider from '@/components/ClientSecurityProvider';
 
 export const metadata = {
   title: 'ABTalks — Build in Public. Grow Together.',
@@ -23,9 +24,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="app-shell">
-          {children}
+          <ClientSecurityProvider>
+            {children}
+          </ClientSecurityProvider>
         </div>
       </body>
     </html>
   );
 }
+
