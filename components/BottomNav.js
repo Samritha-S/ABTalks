@@ -32,7 +32,7 @@ const navItems = [
   {
     id: 'leaderboard',
     label: 'Leaders',
-    href: '/dashboard',
+    href: '/leaderboard',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -42,7 +42,7 @@ const navItems = [
   {
     id: 'profile',
     label: 'Profile',
-    href: '/dashboard',
+    href: '/profile',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -58,8 +58,7 @@ export default function BottomNav({ active }) {
   return (
     <nav className={styles.bottomNav} id="bottom-nav" role="navigation" aria-label="Main navigation">
       {navItems.map(item => {
-        const isActive = active === item.id ||
-          (item.href === pathname && active !== 'none');
+        const isActive = active === item.id || (item.href === pathname && active === undefined);
         return (
           <Link
             key={item.id}

@@ -43,7 +43,7 @@ export default function LandingPage() {
             <a href="#tracks" onClick={() => setMenuOpen(false)}>Tracks</a>
             <a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a>
             <a href="#community" onClick={() => setMenuOpen(false)}>Community</a>
-            <Link href="/dashboard" onClick={() => setMenuOpen(false)} className={`btn btn-primary ${styles.menuCta}`}>
+            <Link href="/login" onClick={() => setMenuOpen(false)} className={`btn btn-primary ${styles.menuCta}`}>
               Start your streak →
             </Link>
           </nav>
@@ -65,7 +65,7 @@ export default function LandingPage() {
           Pick a track, ship something daily, and turn your commits into proof recruiters actually see.
         </p>
         <div className={styles.heroCtas}>
-          <Link href="/dashboard" className={`btn btn-primary btn-lg ${styles.ctaPrimary}`} id="hero-start-btn">
+          <Link href="/register" className={`btn btn-primary btn-lg ${styles.ctaPrimary}`} id="hero-start-btn">
             Start your streak
           </Link>
           <a href="#tracks" className={`btn btn-secondary btn-lg`} id="hero-browse-btn">
@@ -170,7 +170,7 @@ export default function LandingPage() {
         <div className={styles.finalCtaGlow} />
         <h2 className={styles.finalCtaTitle}>Your next 60 days<br />start today.</h2>
         <p className={styles.finalCtaSub}>Free to join. No experience required. Just show up.</p>
-        <Link href="/dashboard" className={`btn btn-primary btn-lg btn-full ${styles.finalCtaBtn}`} id="final-cta-btn">
+        <Link href="/register" className={`btn btn-primary btn-lg btn-full ${styles.finalCtaBtn}`} id="final-cta-btn">
           Start your streak →
         </Link>
         <p className={styles.finalCtaNote}>10,247 builders are already shipping daily</p>

@@ -4,15 +4,15 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  --bg-base: #0c0d10;
-  --bg-surface: #141518;
-  --bg-card: #1a1c21;
-  --bg-card-hover: #1f2128;
-  --bg-overlay: rgba(12,13,16,0.95);
+  --bg-base: #0f172a;      /* Deep slate blue */
+  --bg-surface: #1e293b;   /* Lighter slate blue */
+  --bg-card: #1e293b;
+  --bg-card-hover: #334155;
+  --bg-overlay: rgba(15,23,42,0.95);
 
-  --accent-yellow: #F5C542;
-  --accent-yellow-dim: rgba(245,197,66,0.12);
-  --accent-yellow-glow: rgba(245,197,66,0.25);
+  --accent-yellow: #fcd34d; /* Butter yellow */
+  --accent-yellow-dim: rgba(252,211,77,0.12);
+  --accent-yellow-glow: rgba(252,211,77,0.25);
   --accent-green: #22c55e;
   --accent-green-dim: rgba(34,197,94,0.12);
   --accent-purple: #8b5cf6;
