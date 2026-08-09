@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import BottomNav from '@/components/BottomNav';
 import { student } from '@/data/mockData';
