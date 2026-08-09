@@ -3,36 +3,55 @@ import { student } from '@/data/mockData';
 
 export default function ProfilePage() {
   return (
-    <div className="page-with-bottom-nav" style={{ padding: '2rem 1rem', background: 'var(--bg-base)', minHeight: '100dvh' }}>
-      <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 800, marginBottom: '1rem' }}>Profile</h1>
-      
-      <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-        <div className="avatar avatar-lg" style={{ background: '#22c55e', color: '#0c0d10' }}>
-          {student.name.split(' ').map(n => n[0]).join('')}
-        </div>
-        <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', color: 'var(--text-primary)' }}>{student.name}</h2>
-          <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>@{student.username}</p>
-        </div>
+    <div className="page-with-bottom-nav" style={{ background: 'var(--bg-base)' }}>
+      {/* Header */}
+      <div style={{
+        padding: '20px 40px',
+        position: 'sticky',
+        top: 0,
+        background: 'rgba(15,23,42,0.92)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: '1px solid var(--border-subtle)',
+        zIndex: 30,
+      }}>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em' }}>
+          Profile
+        </h1>
       </div>
 
-      <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.5rem' }}>
-          <span style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>Track</span>
-          <span style={{ color: 'var(--text-primary)', fontSize: '14px', fontWeight: 500 }}>{student.track}</span>
+      {/* Content */}
+      <div style={{ padding: '40px', maxWidth: '600px' }}>
+        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem', padding: '24px' }}>
+          <div className="avatar avatar-lg" style={{ background: '#22c55e', color: '#0c0d10' }}>
+            {student.name.split(' ').map(n => n[0]).join('')}
+          </div>
+          <div>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--text-primary)', fontWeight: 700 }}>{student.name}</h2>
+            <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>@{student.username}</p>
+          </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.5rem' }}>
-          <span style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>College</span>
-          <span style={{ color: 'var(--text-primary)', fontSize: '14px', fontWeight: 500 }}>{student.college}</span>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem' }}>
-          <span style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>GitHub</span>
-          <span style={{ color: 'var(--text-primary)', fontSize: '14px', fontWeight: 500 }}>{student.githubHandle}</span>
-        </div>
-      </div>
 
-      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-        <button className="btn btn-ghost" style={{ width: '100%', color: 'var(--accent-red)' }}>Sign Out</button>
+        <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', padding: '24px', marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.75rem' }}>
+            <span style={{ color: 'var(--text-secondary)', fontSize: '15px' }}>Track</span>
+            <span style={{ color: 'var(--text-primary)', fontSize: '15px', fontWeight: 600 }}>{student.track}</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.75rem' }}>
+            <span style={{ color: 'var(--text-secondary)', fontSize: '15px' }}>College</span>
+            <span style={{ color: 'var(--text-primary)', fontSize: '15px', fontWeight: 600 }}>{student.college}</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.25rem' }}>
+            <span style={{ color: 'var(--text-secondary)', fontSize: '15px' }}>GitHub</span>
+            <span style={{ color: 'var(--text-primary)', fontSize: '15px', fontWeight: 600 }}>@{student.githubHandle}</span>
+          </div>
+        </div>
+
+        <div style={{ textAlign: 'center' }}>
+          <button className="btn btn-ghost" style={{ width: '100%', color: 'var(--accent-red)', padding: '14px' }}>
+            Sign Out
+          </button>
+        </div>
       </div>
 
       <BottomNav active="profile" />
