@@ -86,26 +86,12 @@
   padding: 32px 16px 24px;
   position: relative;
   overflow: hidden;
-}
-.heroGlow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(252, 211, 77, 0.04),
-    transparent 40%
-  );
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.5s ease;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -40px;
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(252,211,77,0.06) 0%, transparent 70%);
-  pointer-events: none;
+  /* Premium background grid mesh */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
 }
 .heroLabel {
   display: flex;
@@ -203,7 +189,6 @@
   border-color: var(--accent-yellow);
   background: var(--bg-card-hover);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-yellow);
 }
 .trackLeft {
   display: flex;
@@ -430,30 +415,13 @@
     justify-content: center;
     text-align: center;
     position: relative;
-  }
-  .heroGlow {
-    background: radial-gradient(
-      800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-      rgba(252, 211, 77, 0.08),
-      transparent 50%
-    );
-  }
-  .hero::before {
-    top: -200px;
-    right: -100px;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(252,211,77,0.07) 0%, transparent 70%);
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -150px;
-    left: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(34,197,94,0.05) 0%, transparent 70%);
-    pointer-events: none;
+    /* Grid background with fade-out mask towards bottom */
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
   }
   .heroLabel {
     font-size: 13px;
