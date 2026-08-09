@@ -119,13 +119,33 @@ export default function LandingPage() {
       <section className={styles.section} id="how-it-works">
         <div className={styles.sectionHeader}>
           <span className="badge badge-subtle">HOW IT WORKS</span>
+          <h2 className={styles.sectionTitle}>The challenge, explained</h2>
+          <p className={styles.sectionSub}>
+            ABTalks runs a 60-day coding challenge for Indian college students. Pick a track, build something every day, and prove it — publicly.
+          </p>
         </div>
+
+        {/* Proof types */}
+        <div className={styles.proofRow}>
+          <div className={styles.proofItem}>
+            <div className={styles.proofIcon}>⬡</div>
+            <div className={styles.proofLabel}>GitHub commit</div>
+            <div className={styles.proofDesc}>Push real code every day. No theory, no tutorials.</div>
+          </div>
+          <div className={styles.proofDivider}>+</div>
+          <div className={styles.proofItem}>
+            <div className={styles.proofIcon}>in</div>
+            <div className={styles.proofLabel}>LinkedIn post</div>
+            <div className={styles.proofDesc}>Share what you built. Recruiters are watching.</div>
+          </div>
+        </div>
+
         <div className={styles.steps}>
           {[
-            { num: '01', title: 'Pick your track', desc: 'Choose Full Stack, AI, DSA, or more. Each track has a 30–60 day roadmap.' },
-            { num: '02', title: 'Build every day', desc: 'Get a real task each morning. Ship something tangible — no tutorials, no theory.' },
-            { num: '03', title: 'Post your proof', desc: 'Commit to GitHub + post on LinkedIn. Your streak is public and searchable.' },
-            { num: '04', title: 'Get noticed', desc: 'Recruiters search #ABTalks. Your consistent posts become your portfolio.' },
+            { num: '01', title: 'Pick your track', desc: 'Full Stack, AI, or DSA. Each has a structured 30–60 day roadmap built for college students.' },
+            { num: '02', title: 'Build every day', desc: 'Get one focused task each morning. Ship something real — a feature, an API, a model. No fluff.' },
+            { num: '03', title: 'Post your proof', desc: 'A GitHub commit + a LinkedIn post. Your streak is public and timestamped.' },
+            { num: '04', title: 'Get noticed', desc: 'Recruiters search #ABTalks. Your consistent, visible output becomes a portfolio that talks.' },
           ].map((step, i) => (
             <div key={i} className={styles.step}>
               <div className={styles.stepNum}>{step.num}</div>
@@ -138,36 +158,65 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Testimonial ── */}
+      {/* ── Testimonials — mobile: rotating card, desktop: infinite marquee ── */}
       <section className={styles.testimonialSection} id="community">
-        <div className={styles.testimonialCard} key={testimonialIdx}>
-          <div className={styles.testimonialQuote}>"</div>
-          <p className={styles.testimonialText}>{current.text}</p>
-          <div className={styles.testimonialAuthor}>
-            <div className="avatar avatar-sm" style={{ background: current.color, color: '#0c0d10', fontWeight: 700 }}>
-              {current.initials}
-            </div>
-            <div>
-              <div className={styles.testimonialName}>{current.name}</div>
-              <div className={styles.testimonialTrack}>{current.track}</div>
+        <div className={styles.sectionHeader}>
+          <span className="badge badge-subtle">COMMUNITY</span>
+          <h2 className={styles.sectionTitle}>What builders say</h2>
+        </div>
+
+        {/* Mobile: single rotating card */}
+        <div className={styles.testimonialMobile}>
+          <div className={styles.testimonialCard} key={testimonialIdx}>
+            <div className={styles.testimonialQuote}>"</div>
+            <p className={styles.testimonialText}>{current.text}</p>
+            <div className={styles.testimonialAuthor}>
+              {current.avatar
+                ? <img src={current.avatar} alt={current.name} className={styles.testimonialPfp} />
+                : <div className="avatar avatar-sm" style={{ background: current.color, color: '#060913', fontWeight: 700 }}>{current.initials}</div>
+              }
+              <div>
+                <div className={styles.testimonialName}>{current.name}</div>
+                <div className={styles.testimonialTrack}>{current.track}</div>
+              </div>
             </div>
           </div>
+          <div className={styles.testimonialDots}>
+            {testimonials.slice(0, 5).map((_, i) => (
+              <button
+                key={i}
+                className={`${styles.dot2} ${i === testimonialIdx % 5 ? styles.dotActive : ''}`}
+                onClick={() => setTestimonialIdx(i)}
+                id={`testimonial-dot-${i}`}
+              />
+            ))}
+          </div>
         </div>
-        <div className={styles.testimonialDots}>
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              className={`${styles.dot2} ${i === testimonialIdx ? styles.dotActive : ''}`}
-              onClick={() => setTestimonialIdx(i)}
-              id={`testimonial-dot-${i}`}
-            />
-          ))}
+
+        {/* Desktop: infinite marquee of all 20 cards */}
+        <div className={styles.marqueeWrapper}>
+          <div className={styles.marqueeTrack}>
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <div key={i} className={styles.marqueeCard}>
+                <p className={styles.marqueeText}>"{t.text}"</p>
+                <div className={styles.testimonialAuthor}>
+                  {t.avatar
+                    ? <img src={t.avatar} alt={t.name} className={styles.testimonialPfp} />
+                    : <div className="avatar avatar-sm" style={{ background: t.color, color: '#060913', fontWeight: 700 }}>{t.initials}</div>
+                  }
+                  <div>
+                    <div className={styles.testimonialName}>{t.name}</div>
+                    <div className={styles.testimonialTrack}>{t.track}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── Final CTA ── */}
       <section className={styles.finalCta}>
-        <div className={styles.finalCtaGlow} />
         <h2 className={styles.finalCtaTitle}>Your next 60 days<br />start today.</h2>
         <p className={styles.finalCtaSub}>Free to join. No experience required. Just show up.</p>
         <Link href="/register" className={`btn btn-primary btn-lg btn-full ${styles.finalCtaBtn}`} id="final-cta-btn">
