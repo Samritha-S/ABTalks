@@ -383,32 +383,31 @@
 /* ── Desktop Optimization ── */
 @media (min-width: 768px) {
   .header {
-    padding: 24px 48px;
+    padding: 20px 40px;
     position: sticky;
     top: 0;
+    background: rgba(15,23,42,0.92);
   }
-  .greeting { font-size: 14px; }
+  .greeting { font-size: 13px; }
   .userName { font-size: 20px; }
   .trackBadge { font-size: 13px; padding: 6px 14px; }
 
   .content {
-    padding: 40px 48px;
-    max-width: 1280px;
-    margin: 0 auto;
+    padding: 32px 40px;
     display: grid;
     grid-template-columns: 1.6fr 1fr;
-    gap: 32px;
+    gap: 28px;
     align-items: start;
   }
 
   /* Streak card */
-  .streakNumber { font-size: 64px; }
+  .streakNumber { font-size: 60px; }
   .streakLabel { font-size: 18px; }
 
   /* Today's task card */
-  .todayCard { padding: 28px; }
-  .taskTitle { font-size: 22px; }
+  .todayCard { padding: 24px; }
+  .taskTitle { font-size: 20px; }
 
   /* Section labels */
-  .sectionLabel { font-size: 13px; }
+  .sectionLabel { font-size: 12px; }
 }

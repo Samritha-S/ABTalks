@@ -278,7 +278,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) {
   .page-with-bottom-nav {
     padding-bottom: 0;
-    padding-left: 250px; /* Make room for the sidebar */
+    padding-left: 240px; /* Matches sidebar width */
   }
 }
 

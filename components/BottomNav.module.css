@@ -1,5 +1,4 @@
-/* Bottom Navigation Bar */
-
+/* Bottom Navigation Bar — Mobile */
 .bottomNav {
   position: fixed;
   bottom: 0;
@@ -9,7 +8,7 @@
   max-width: var(--max-mobile);
   display: flex;
   align-items: center;
-  background: rgba(20, 21, 24, 0.95);
+  background: rgba(15, 23, 42, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--border-card);
@@ -68,46 +67,60 @@
 /* ── Desktop Sidebar Mode ── */
 @media (min-width: 768px) {
   .bottomNav {
-    top: 0;
+    /* Override bottom-bar positioning */
     bottom: 0;
-    left: calc(50% - 600px); /* Align with left edge of 1200px app-shell */
+    top: 0;
+    left: 0;
     transform: none;
-    width: 250px;
+    max-width: 240px;
+    width: 240px;
+
+    /* Sidebar layout */
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 40px;
-    padding-bottom: 0;
+    align-items: flex-start;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    /* Sidebar appearance */
+    background: var(--bg-surface);
     border-top: none;
     border-right: 1px solid var(--border-card);
-    background: transparent;
-  }
-  
-  /* Fallback if screen is smaller than 1200px but larger than 768px */
-  @media (max-width: 1200px) {
-    .bottomNav {
-      left: 0;
-    }
   }
 
   .navItem {
     flex: none;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    padding: 16px 32px;
+    padding: 14px 28px;
+    gap: 14px;
+    border-radius: 0;
+  }
+
+  .navItem:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .navItemActive {
+    background: var(--accent-yellow-dim);
   }
 
   .navLabel {
-    font-size: 14px;
-    margin-left: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 0;
+    letter-spacing: 0;
   }
 
+  /* Active indicator — left edge bar */
   .navIndicator {
     left: 0;
     top: 0;
     transform: none;
     width: 3px;
     height: 100%;
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border-radius: 0 3px 3px 0;
   }
 }
