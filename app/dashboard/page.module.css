@@ -411,3 +411,79 @@
   /* Section labels */
   .sectionLabel { font-size: 12px; }
 }
+
+/* ── Streak Activity Grid ── */
+.gridSection {
+  animation: fadeInUp 0.4s ease;
+}
+.gridCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.gridLegend {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.legendText {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.activityGrid {
+  display: grid;
+  /* 10 columns by 6 rows = 60 days */
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.gridCell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+}
+.cellLocked {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.cellCompleted {
+  background: var(--accent-yellow);
+}
+.cellCompleted:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 8px rgba(252, 211, 77, 0.3);
+}
+.cellToday {
+  background: rgba(252, 211, 77, 0.12);
+  border: 1.5px solid var(--accent-yellow);
+  animation: pulse 2s infinite;
+}
+.gridFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.footerScale {
+  display: flex;
+  gap: 4px;
+}
+.footerScale .gridCell {
+  width: 12px;
+  height: 12px;
+}
+
+@media (min-width: 768px) {
+  .activityGrid {
+    /* 15 columns by 4 rows = 60 days on desktop for a wider landscape ratio */
+    grid-template-columns: repeat(15, 1fr);
+    gap: 8px;
+  }
+  .gridCard {
+    padding: 24px;
+  }
+}

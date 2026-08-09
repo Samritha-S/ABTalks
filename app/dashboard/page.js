@@ -216,6 +216,55 @@ export default function DashboardPage() {
           </div>
         </div>
 
+        {/* ── 60-Day Progress Grid (GitHub/LeetCode Style) ── */}
+        <div className={styles.gridSection}>
+          <div className={styles.sectionLabel}>STREAK ACTIVITY GRID</div>
+          <div className={styles.gridCard} id="activity-grid-card">
+            <div className={styles.gridLegend}>
+              <span className={styles.legendText}>Day 1</span>
+              <span className={styles.legendText}>Day 60</span>
+            </div>
+            <div className={styles.activityGrid}>
+              {Array.from({ length: s.totalDays }).map((_, idx) => {
+                const dayNum = idx + 1;
+                const isCompleted = dayNum < s.currentDay;
+                const isToday = dayNum === s.currentDay;
+                
+                // Simulate varying commit density (opacities) for completed days
+                let opacity = 0.15; // default uncompleted
+                if (isCompleted) {
+                  const densities = [0.4, 0.6, 0.8, 1.0];
+                  // Deterministic pseudo-random density based on day index
+                  opacity = densities[(idx * 3) % densities.length];
+                }
+
+                return (
+                  <div
+                    key={idx}
+                    className={`${styles.gridCell} ${
+                      isCompleted ? styles.cellCompleted :
+                      isToday ? styles.cellToday :
+                      styles.cellLocked
+                    }`}
+                    style={isCompleted ? { opacity } : {}}
+                    title={`Day ${dayNum}: ${isCompleted ? 'Completed' : isToday ? 'Active Today' : 'Locked'}`}
+                  />
+                );
+              })}
+            </div>
+            <div className={styles.gridFooter}>
+              <span>Less</span>
+              <div className={styles.footerScale}>
+                <div className={`${styles.gridCell} ${styles.cellLocked}`} />
+                <div className={`${styles.gridCell} ${styles.cellCompleted}`} style={{ opacity: 0.4 }} />
+                <div className={`${styles.gridCell} ${styles.cellCompleted}`} style={{ opacity: 0.7 }} />
+                <div className={`${styles.gridCell} ${styles.cellCompleted}`} style={{ opacity: 1.0 }} />
+              </div>
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+
         {/* ── Achievements ── */}
         <div className={styles.achieveSection}>
           <div className={styles.sectionLabel}>ACHIEVEMENTS</div>
