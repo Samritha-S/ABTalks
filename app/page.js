@@ -22,20 +22,7 @@ export default function LandingPage() {
 
   return (
     <div className={styles.landing}>
-      {/* ── Nav ── */}
-      <nav className={styles.nav}>
-        <div className={styles.navInner}>
-          <Image src="/abtalks-logo.png" alt="AB Talks" width={110} height={36} className={styles.logoImg} priority />
-          <button
-            className={styles.menuBtn}
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open menu"
-            id="menu-open-btn"
-          >
-            <span /><span /><span />
-          </button>
-        </div>
-      </nav>
+
 
       {/* ── Fullscreen Menu Overlay ── */}
       {menuOpen && (
@@ -79,6 +66,9 @@ export default function LandingPage() {
           <line x1="70" y1="110" x2="140" y2="130" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
         </svg>
 
+        <div className={styles.heroLogoWrap}>
+          <Image src="/abtalks-logo.png" alt="AB Talks" width={120} height={40} className={styles.heroLogoImg} priority />
+        </div>
         <div className={styles.heroLabel}>
           <span className={styles.dot} />
           BUILD IN PUBLIC. GROW TOGETHER.
