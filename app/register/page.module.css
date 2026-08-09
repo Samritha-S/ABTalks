@@ -1,4 +1,4 @@
-/* Login Page */
+/* Register Page Styles */
 .page {
   min-height: 100dvh;
   display: flex;
@@ -26,13 +26,6 @@
   max-width: 400px;
   position: relative;
   z-index: 1;
-}
-
-/* Constellations */
-.constellation {
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
 }
 
 .formHeader {
@@ -72,67 +65,6 @@
   color: var(--text-secondary);
 }
 
-.errorMsg {
-  font-size: 13px;
-  color: var(--accent-red);
-  padding: 10px 14px;
-  background: rgba(239,68,68,0.08);
-  border: 1px solid rgba(239,68,68,0.2);
-  border-radius: var(--radius-md);
-}
-
-/* Loading state */
-.loading { opacity: 0.8; }
-.spinner {
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(12,13,16,0.3);
-  border-top-color: var(--bg-base);
-  border-radius: 50%;
-  display: inline-block;
-  animation: spin 0.7s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* Mock accounts */
-.mockHint {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 16px;
-  margin-bottom: 24px;
-}
-.mockHintLabel {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
-}
-.mockAccounts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.mockChip {
-  padding: 7px 14px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-full);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  font-family: var(--font-body);
-}
-.mockChip:hover {
-  border-color: var(--accent-yellow);
-  color: var(--accent-yellow);
-  background: var(--accent-yellow-dim);
-}
-
 .switchLink {
   font-size: 14px;
   color: var(--text-secondary);
@@ -155,13 +87,19 @@
 }
 .backLink:hover { color: var(--text-secondary); }
 
-/* ── Desktop: split panel ── */
+/* Constellation SVGs */
+.constellation {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Desktop Split Panel */
 @media (min-width: 768px) {
   .page {
     flex-direction: row;
   }
 
-  /* Left branding panel */
   .leftPanel {
     display: flex;
     flex-direction: column;
@@ -174,7 +112,7 @@
     position: relative;
     overflow: hidden;
   }
-  /* Decorative glow */
+
   .leftPanel::before {
     content: '';
     position: absolute;
@@ -183,16 +121,6 @@
     width: 400px;
     height: 400px;
     background: radial-gradient(circle, rgba(252,211,77,0.08) 0%, transparent 65%);
-    pointer-events: none;
-  }
-  .leftPanel::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(34,197,94,0.06) 0%, transparent 65%);
     pointer-events: none;
   }
 
@@ -242,7 +170,6 @@
     letter-spacing: 0.06em;
   }
 
-  /* Right panel */
   .rightPanel {
     flex: 1;
     padding: 60px 80px;
