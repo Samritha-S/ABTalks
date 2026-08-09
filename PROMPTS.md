@@ -9,7 +9,8 @@ Tool: **Google Antigravity (Gemini)**
 
 **Project:** ABTalks — 60-Day Coding Challenge Platform  
 **Stack:** Next.js 15, Vanilla CSS (CSS Modules), SVG  
-**Screens built:** Landing Page (`/`), Student Dashboard (`/dashboard`), Challenge Day (`/day`), Leaderboard, Profile, Login, Register
+**Screens built:** Landing Page (`/`), Student Dashboard (`/dashboard`), Challenge Day (`/day/12`), Leaderboard (`/leaderboard`), Profile (`/profile`), Login (`/login`), Register (`/register`)  
+**Route Map (submission):** `/` → `/dashboard` → `/day/12`
 
 ---
 
