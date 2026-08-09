@@ -16,6 +16,8 @@ export default function LandingPage() {
     return () => clearInterval(t);
   }, []);
 
+  const current = testimonials[testimonialIdx];
+
   return (
     <div className={styles.landing}>
       {/* ── Nav ── */}
