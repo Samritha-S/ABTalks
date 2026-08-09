@@ -140,7 +140,6 @@
   padding: 32px 16px 24px;
   position: relative;
   overflow: hidden;
-  /* Premium background grid mesh */
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -469,13 +468,11 @@
     justify-content: center;
     text-align: center;
     position: relative;
-    /* Grid background with fade-out mask towards bottom */
+    /* Grid background */
     background-image: 
       linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     background-size: 50px 50px;
-    mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
-    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
   }
   .heroLabel {
     font-size: 13px;
@@ -562,9 +559,6 @@
     display: block;
     overflow: hidden;
     width: 100%;
-    /* Fade edges */
-    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   }
   .marqueeTrack {
     display: flex;
