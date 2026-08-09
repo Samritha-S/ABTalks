@@ -118,7 +118,23 @@ export default function LandingPage() {
       </section>
 
       {/* ── Tracks ── */}
-      <section className={styles.section} id="tracks">
+      <section className={`${styles.section} ${styles.sectionRelative}`} id="tracks">
+        {/* Corner constellation — top right */}
+        <svg className={`${styles.constellation} ${styles.constelSectionTR}`} viewBox="0 0 180 200" fill="none">
+          <circle cx="150" cy="20" r="2.5" fill="#fcd34d" />
+          <circle cx="100" cy="50" r="1.8" fill="#ffffff" opacity="0.5" />
+          <circle cx="165" cy="80" r="2" fill="#ffffff" opacity="0.6" />
+          <circle cx="70" cy="90" r="1.5" fill="#fcd34d" opacity="0.7" />
+          <circle cx="130" cy="130" r="2" fill="#ffffff" opacity="0.4" />
+          <circle cx="170" cy="160" r="1.5" fill="#fcd34d" opacity="0.5" />
+          <circle cx="90" cy="170" r="1.8" fill="#ffffff" opacity="0.35" />
+          <line x1="150" y1="20" x2="100" y2="50" stroke="rgba(252,211,77,0.12)" strokeWidth="0.8" />
+          <line x1="100" y1="50" x2="165" y2="80" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+          <line x1="100" y1="50" x2="70" y2="90" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+          <line x1="165" y1="80" x2="130" y2="130" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+          <line x1="130" y1="130" x2="170" y2="160" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+          <line x1="130" y1="130" x2="90" y2="170" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
+        </svg>
         <div className={styles.sectionHeader}>
           <span className={`badge badge-subtle`}>TRACKS OPEN NOW</span>
           <h2 className={styles.sectionTitle}>Choose your path</h2>
@@ -269,7 +285,35 @@ export default function LandingPage() {
       </section>
 
       {/* ── How it works ── */}
-      <section className={styles.section} id="how-it-works">
+      <section className={`${styles.section} ${styles.sectionRelative}`} id="how-it-works">
+        {/* Corner constellation — top right */}
+        <svg className={`${styles.constellation} ${styles.constelSectionTR}`} viewBox="0 0 180 200" fill="none">
+          <circle cx="140" cy="15" r="2.5" fill="#fcd34d" />
+          <circle cx="80" cy="40" r="1.8" fill="#ffffff" opacity="0.5" />
+          <circle cx="160" cy="70" r="2" fill="#ffffff" opacity="0.6" />
+          <circle cx="50" cy="80" r="1.5" fill="#fcd34d" opacity="0.6" />
+          <circle cx="120" cy="110" r="1.8" fill="#ffffff" opacity="0.4" />
+          <circle cx="170" cy="150" r="1.5" fill="#fcd34d" opacity="0.5" />
+          <line x1="140" y1="15" x2="80" y2="40" stroke="rgba(252,211,77,0.12)" strokeWidth="0.8" />
+          <line x1="80" y1="40" x2="160" y2="70" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+          <line x1="80" y1="40" x2="50" y2="80" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+          <line x1="160" y1="70" x2="120" y2="110" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+          <line x1="120" y1="110" x2="170" y2="150" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+        </svg>
+        {/* Corner constellation — bottom left */}
+        <svg className={`${styles.constellation} ${styles.constelSectionBL}`} viewBox="0 0 160 180" fill="none">
+          <circle cx="20" cy="160" r="2.5" fill="#fcd34d" />
+          <circle cx="70" cy="140" r="1.8" fill="#ffffff" opacity="0.5" />
+          <circle cx="10" cy="100" r="2" fill="#ffffff" opacity="0.6" />
+          <circle cx="100" cy="110" r="1.5" fill="#fcd34d" opacity="0.6" />
+          <circle cx="50" cy="70" r="1.8" fill="#ffffff" opacity="0.4" />
+          <circle cx="130" cy="60" r="1.5" fill="#fcd34d" opacity="0.5" />
+          <line x1="20" y1="160" x2="70" y2="140" stroke="rgba(252,211,77,0.12)" strokeWidth="0.8" />
+          <line x1="70" y1="140" x2="10" y2="100" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+          <line x1="70" y1="140" x2="100" y2="110" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+          <line x1="10" y1="100" x2="50" y2="70" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+          <line x1="50" y1="70" x2="130" y2="60" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+        </svg>
         <div className={styles.sectionHeader}>
           <span className="badge badge-subtle">HOW IT WORKS</span>
           <h2 className={styles.sectionTitle}>The challenge, explained</h2>

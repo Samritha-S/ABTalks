@@ -238,9 +238,29 @@
   padding: 24px 16px;
   border-top: 1px solid var(--border-subtle);
 }
+.sectionRelative {
+  position: relative;
+  overflow: hidden;
+}
+/* Corner constellations shared by How-it-Works and Tracks */
+.constelSectionTR {
+  right: -20px;
+  top: 0;
+  width: 140px;
+  height: 180px;
+  opacity: 0.55;
+}
+.constelSectionBL {
+  left: -20px;
+  bottom: 0;
+  width: 130px;
+  height: 160px;
+  opacity: 0.5;
+}
 .sectionHeader {
   margin-bottom: 14px;
 }
+
 
 /* ── Tracks ── */
 .tracksList {
