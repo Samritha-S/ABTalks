@@ -370,14 +370,56 @@ export default function LandingPage() {
 
       {/* ── Final CTA ── */}
       <section className={styles.finalCta}>
-        <svg className={`${styles.constellation} ${styles.constelCta}`} viewBox="0 0 200 200" fill="none">
-          <circle cx="100" cy="50" r="3" fill="#fcd34d" />
-          <circle cx="50" cy="110" r="2.5" fill="#ffffff" opacity="0.6" />
-          <circle cx="150" cy="110" r="2.5" fill="#ffffff" opacity="0.8" />
-          <line x1="100" y1="50" x2="50" y2="110" stroke="rgba(252,211,77,0.12)" strokeWidth="1" />
-          <line x1="100" y1="50" x2="150" y2="110" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-          <line x1="50" y1="110" x2="150" y2="110" stroke="rgba(252,211,77,0.08)" strokeWidth="0.8" />
+        {/* Left constellation cluster */}
+        <svg className={`${styles.constellation} ${styles.constelCtaLeft}`} viewBox="0 0 220 340" fill="none">
+          <circle cx="30" cy="40" r="2.5" fill="#fcd34d" />
+          <circle cx="90" cy="20" r="1.8" fill="#ffffff" opacity="0.5" />
+          <circle cx="150" cy="60" r="2" fill="#ffffff" opacity="0.6" />
+          <circle cx="60" cy="110" r="3" fill="#fcd34d" />
+          <circle cx="130" cy="140" r="1.8" fill="#ffffff" opacity="0.4" />
+          <circle cx="20" cy="180" r="2" fill="#ffffff" opacity="0.7" />
+          <circle cx="100" cy="210" r="2.5" fill="#fcd34d" />
+          <circle cx="170" cy="190" r="1.5" fill="#ffffff" opacity="0.35" />
+          <circle cx="50" cy="270" r="2" fill="#ffffff" opacity="0.5" />
+          <circle cx="140" cy="300" r="1.8" fill="#fcd34d" opacity="0.6" />
+          <circle cx="190" cy="260" r="1.5" fill="#ffffff" opacity="0.3" />
+          <line x1="30" y1="40" x2="90" y2="20" stroke="rgba(252,211,77,0.12)" strokeWidth="0.8" />
+          <line x1="90" y1="20" x2="150" y2="60" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+          <line x1="30" y1="40" x2="60" y2="110" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+          <line x1="60" y1="110" x2="130" y2="140" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+          <line x1="20" y1="180" x2="60" y2="110" stroke="rgba(252,211,77,0.12)" strokeWidth="0.8" />
+          <line x1="20" y1="180" x2="100" y2="210" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+          <line x1="100" y1="210" x2="170" y2="190" stroke="rgba(252,211,77,0.09)" strokeWidth="0.8" />
+          <line x1="50" y1="270" x2="100" y2="210" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+          <line x1="50" y1="270" x2="140" y2="300" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+          <line x1="140" y1="300" x2="190" y2="260" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
         </svg>
+
+        {/* Right constellation cluster */}
+        <svg className={`${styles.constellation} ${styles.constelCtaRight}`} viewBox="0 0 220 340" fill="none">
+          <circle cx="190" cy="30" r="2.5" fill="#fcd34d" />
+          <circle cx="120" cy="50" r="1.8" fill="#ffffff" opacity="0.5" />
+          <circle cx="60" cy="20" r="2" fill="#ffffff" opacity="0.4" />
+          <circle cx="170" cy="100" r="3" fill="#fcd34d" />
+          <circle cx="90" cy="130" r="1.8" fill="#ffffff" opacity="0.5" />
+          <circle cx="200" cy="170" r="2" fill="#ffffff" opacity="0.6" />
+          <circle cx="130" cy="200" r="2.5" fill="#fcd34d" />
+          <circle cx="50" cy="180" r="1.5" fill="#ffffff" opacity="0.35" />
+          <circle cx="170" cy="260" r="2" fill="#ffffff" opacity="0.5" />
+          <circle cx="80" cy="300" r="1.8" fill="#fcd34d" opacity="0.6" />
+          <circle cx="30" cy="260" r="1.5" fill="#ffffff" opacity="0.3" />
+          <line x1="190" y1="30" x2="120" y2="50" stroke="rgba(252,211,77,0.12)" strokeWidth="0.8" />
+          <line x1="120" y1="50" x2="60" y2="20" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+          <line x1="190" y1="30" x2="170" y2="100" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+          <line x1="170" y1="100" x2="90" y2="130" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+          <line x1="200" y1="170" x2="170" y2="100" stroke="rgba(252,211,77,0.12)" strokeWidth="0.8" />
+          <line x1="200" y1="170" x2="130" y2="200" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+          <line x1="130" y1="200" x2="50" y2="180" stroke="rgba(252,211,77,0.09)" strokeWidth="0.8" />
+          <line x1="170" y1="260" x2="130" y2="200" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+          <line x1="170" y1="260" x2="80" y2="300" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+          <line x1="80" y1="300" x2="30" y2="260" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
+        </svg>
+
         <h2 className={styles.finalCtaTitle}>Your next 60 days<br />start today.</h2>
         <p className={styles.finalCtaSub}>Free to join. No experience required. Just show up.</p>
         <Link href="/register" className={`btn btn-primary btn-lg btn-full ${styles.finalCtaBtn}`} id="final-cta-btn">

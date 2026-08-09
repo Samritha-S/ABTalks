@@ -498,13 +498,21 @@
   position: relative;
   overflow: hidden;
 }
-.constelCta {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 280px;
-  opacity: 0.65;
+.constelCtaLeft {
+  left: -60px;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  height: 100%;
+  opacity: 0.6;
+}
+.constelCtaRight {
+  right: -60px;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  height: 100%;
+  opacity: 0.6;
 }
 .finalCtaTitle {
   font-size: 30px;
@@ -601,8 +609,19 @@
     height: 280px;
   }
   .constelCta {
-    width: 500px;
-    height: 500px;
+    display: none;
+  }
+  .constelCtaLeft {
+    left: 0;
+    width: 260px;
+    height: 100%;
+    opacity: 0.75;
+  }
+  .constelCtaRight {
+    right: 0;
+    width: 260px;
+    height: 100%;
+    opacity: 0.75;
   }
   .heroLabel {
     font-size: 13px;
