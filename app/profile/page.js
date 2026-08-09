@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import BottomNav from '@/components/BottomNav';
 import { student } from '@/data/mockData';
 
@@ -48,9 +49,9 @@ export default function ProfilePage() {
         </div>
 
         <div style={{ textAlign: 'center' }}>
-          <button className="btn btn-ghost" style={{ width: '100%', color: 'var(--accent-red)', padding: '14px' }}>
+          <Link href="/" className="btn btn-ghost" style={{ width: '100%', color: 'var(--accent-red)', padding: '14px', display: 'flex' }}>
             Sign Out
-          </button>
+          </Link>
         </div>
       </div>
 
