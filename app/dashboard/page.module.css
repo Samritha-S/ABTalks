@@ -1,7 +1,31 @@
-/* Dashboard Styles */
+/* ═══════════════════════════════════════════════
+   Dashboard Styles
+   ═══════════════════════════════════════════════ */
 
 .dashboard {
   background: var(--bg-base);
+  min-height: 100vh;
+}
+
+/* ── Shared constellation SVG ── */
+.constel {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.constelStreakTR {
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 90px;
+  opacity: 0.65;
+}
+.constelStandingBR {
+  bottom: 0;
+  right: 0;
+  width: 110px;
+  height: 80px;
+  opacity: 0.55;
 }
 
 /* ── Header ── */
@@ -9,11 +33,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
+  padding: 14px 16px;
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(12,13,16,0.9);
+  background: rgba(12,13,16,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
@@ -26,6 +50,7 @@
 .greeting {
   font-size: 11px;
   color: var(--text-muted);
+  margin-bottom: 1px;
 }
 .userName {
   font-family: var(--font-display);
@@ -39,7 +64,8 @@
   gap: 10px;
 }
 .notifBtn {
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--bg-card);
   border: 1px solid var(--border-card);
@@ -49,13 +75,26 @@
   color: var(--text-secondary);
   transition: all var(--transition-fast);
 }
-.notifBtn:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.15); }
+.notifBtn:hover {
+  color: var(--text-primary);
+  border-color: rgba(255,255,255,0.15);
+}
 
+/* ── Content wrapper ── */
 .content {
   padding: 16px;
   display: flex;
   flex-direction: column;
+  gap: 0;
+}
+
+/* Mobile: both cols stack */
+.colA,
+.colB {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
+  padding-bottom: 16px;
 }
 
 /* ── Warning Banner ── */
@@ -63,8 +102,8 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: rgba(245,158,11,0.1);
-  border: 1px solid rgba(245,158,11,0.25);
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.22);
   border-radius: var(--radius-lg);
   padding: 14px;
   animation: fadeInUp 0.4s ease;
@@ -76,11 +115,15 @@
   font-size: 14px;
   color: var(--accent-amber);
 }
-.warningDesc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.warningDesc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
 
 /* ── First Day Card ── */
 .firstDayCard {
-  background: linear-gradient(135deg, rgba(245,197,66,0.08) 0%, rgba(34,197,94,0.05) 100%);
+  background: linear-gradient(135deg, rgba(245,197,66,0.07) 0%, rgba(34,197,94,0.04) 100%);
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-xl);
   padding: 24px;
@@ -96,23 +139,24 @@
   margin-bottom: 8px;
 }
 .firstDayDesc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
-.achievementDesc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
-.lockedText { color: var(--text-muted); font-style: italic; font-size: 12px; margin-top: 4px; }
 
 /* ── Streak Card ── */
 .streakCard {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, #1a1c21 0%, #1f2028 100%);
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-xl);
   padding: 20px;
   animation: fadeInUp 0.4s ease;
-  box-shadow: var(--shadow-glow-yellow);
 }
 .streakMain {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
 }
 .streakFire { font-size: 32px; animation: streakPulse 2s infinite; }
 .streakNumber {
@@ -130,10 +174,18 @@
   align-self: flex-end;
   padding-bottom: 8px;
 }
-.streakDivider { height: 1px; background: var(--border-subtle); margin-bottom: 16px; }
+.streakDivider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
 .streakStats {
   display: flex;
   gap: 0;
+  position: relative;
+  z-index: 1;
 }
 .streakStat {
   flex: 1;
@@ -154,7 +206,7 @@
 .sectionLabel {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: var(--text-muted);
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -173,7 +225,6 @@
 }
 .todayCard:hover {
   border-color: var(--border-accent);
-  box-shadow: var(--shadow-glow-yellow);
   transform: translateY(-2px);
 }
 .todayCardTop {
@@ -213,7 +264,7 @@
   padding: 16px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   animation: fadeInUp 0.4s ease 0.15s both;
 }
 .progressRingWrap {
@@ -245,7 +296,7 @@
   color: var(--text-primary);
   margin-bottom: 4px;
 }
-.progressSub { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; }
+.progressSub { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.5; }
 .progressSub strong { color: var(--accent-yellow); }
 .progressBar {
   height: 5px;
@@ -260,6 +311,51 @@
   transition: width 1s ease;
 }
 
+/* ── Standing ── */
+.standingSection {}
+.standingCard {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  animation: fadeInUp 0.4s ease 0.25s both;
+}
+.standingRank {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+.rankBadge {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 34px;
+  color: var(--accent-yellow);
+  letter-spacing: -0.03em;
+}
+.rankLabel { font-size: 13px; color: var(--text-secondary); }
+.standingBar {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-full);
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.standingBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-green), #4ade80);
+  border-radius: var(--radius-full);
+  transition: width 1.2s ease;
+}
+.standingDesc { font-size: 13px; color: var(--text-secondary); position: relative; z-index: 1; }
+.standingDesc strong { color: var(--accent-green); }
+
 /* ── Week Calendar ── */
 .weekSection {}
 .weekGrid {
@@ -268,7 +364,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-xl);
-  padding: 14px 12px;
+  padding: 14px 10px;
   animation: fadeInUp 0.4s ease 0.2s both;
 }
 .weekDay {
@@ -285,7 +381,8 @@
   font-weight: 500;
 }
 .weekDot {
-  width: 32px; height: 32px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -311,115 +408,14 @@
   animation: streakPulse 2s infinite;
 }
 
-/* ── Standing ── */
-.standingSection {}
-.standingCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-xl);
-  padding: 16px;
-  animation: fadeInUp 0.4s ease 0.25s both;
-}
-.standingRank {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-.rankBadge {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 32px;
-  color: var(--accent-yellow);
-  letter-spacing: -0.03em;
-}
-.rankLabel { font-size: 13px; color: var(--text-secondary); }
-.standingBar {
-  height: 6px;
-  background: rgba(255,255,255,0.06);
-  border-radius: var(--radius-full);
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.standingBarFill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent-green), #4ade80);
-  border-radius: var(--radius-full);
-  transition: width 1.2s ease;
-}
-.standingDesc { font-size: 13px; color: var(--text-secondary); }
-.standingDesc strong { color: var(--accent-green); }
-
-/* ── Achievements ── */
-.achieveSection {}
-.badgeGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  animation: fadeInUp 0.4s ease 0.3s both;
-}
-.badgeItem {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 12px 8px;
-  text-align: center;
-  transition: all var(--transition-base);
-}
-.badgeItem:not(.badgeLocked):hover {
-  border-color: var(--border-accent);
-  transform: translateY(-2px);
-}
-.badgeLocked { opacity: 0.35; }
-.badgeIcon { font-size: 24px; margin-bottom: 4px; }
-.badgeName {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  letter-spacing: 0.01em;
-  line-height: 1.3;
-}
-
-/* ── Desktop Optimization ── */
-@media (min-width: 768px) {
-  .header {
-    padding: 20px 40px;
-    position: sticky;
-    top: 0;
-    background: rgba(15,23,42,0.92);
-  }
-  .greeting { font-size: 13px; }
-  .userName { font-size: 20px; }
-  .trackBadge { font-size: 13px; padding: 6px 14px; }
-
-  .content {
-    padding: 32px 40px;
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 28px;
-    align-items: start;
-  }
-
-  /* Streak card */
-  .streakNumber { font-size: 60px; }
-  .streakLabel { font-size: 18px; }
-
-  /* Today's task card */
-  .todayCard { padding: 24px; }
-  .taskTitle { font-size: 20px; }
-
-  /* Section labels */
-  .sectionLabel { font-size: 12px; }
-}
-
-/* ── Streak Activity Grid ── */
+/* ── Activity Grid ── */
 .gridSection {
   animation: fadeInUp 0.4s ease;
 }
 .gridCard {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: 16px;
 }
 .gridLegend {
@@ -434,7 +430,6 @@
 }
 .activityGrid {
   display: grid;
-  /* 10 columns by 6 rows = 60 days */
   grid-template-columns: repeat(10, 1fr);
   gap: 6px;
   margin-bottom: 12px;
@@ -445,18 +440,17 @@
   transition: all var(--transition-fast);
 }
 .cellLocked {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.02);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.02);
 }
 .cellCompleted {
   background: var(--accent-yellow);
 }
 .cellCompleted:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 8px rgba(252, 211, 77, 0.3);
+  transform: scale(1.2);
 }
 .cellToday {
-  background: rgba(252, 211, 77, 0.12);
+  background: rgba(252,211,77,0.12);
   border: 1.5px solid var(--accent-yellow);
   animation: pulse 2s infinite;
 }
@@ -477,13 +471,91 @@
   height: 12px;
 }
 
+/* ── Achievements ── */
+.achieveSection {}
+.badgeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  animation: fadeInUp 0.4s ease 0.3s both;
+}
+.badgeItem {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 14px 8px;
+  text-align: center;
+  transition: all var(--transition-base);
+}
+.badgeItem:not(.badgeLocked):hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+}
+.badgeLocked { opacity: 0.32; }
+.badgeIcon { font-size: 24px; margin-bottom: 6px; }
+.badgeName {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+
+/* ═══════════════════════════════════════════════
+   Desktop  ≥ 768 px
+   ═══════════════════════════════════════════════ */
 @media (min-width: 768px) {
+  .header {
+    padding: 18px 40px;
+  }
+  .greeting { font-size: 13px; }
+  .userName { font-size: 19px; }
+
+  .content {
+    padding: 32px 40px;
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    grid-template-rows: auto;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .colA {
+    gap: 20px;
+    padding-bottom: 0;
+  }
+  .colB {
+    gap: 20px;
+    padding-bottom: 0;
+  }
+
+  /* Streak card */
+  .streakCard { padding: 24px; }
+  .streakNumber { font-size: 64px; }
+  .streakLabel { font-size: 16px; }
+  .streakFire { font-size: 40px; }
+
+  /* Today card */
+  .todayCard { padding: 22px; }
+  .todayTitle { font-size: 20px; }
+
+  /* Progress card */
+  .progressCard { padding: 20px; gap: 22px; }
+
+  /* Standing card */
+  .standingCard { padding: 20px; }
+  .rankBadge { font-size: 40px; }
+
+  /* Section labels */
+  .sectionLabel { font-size: 12px; }
+
+  /* Activity grid wider cols on desktop */
   .activityGrid {
-    /* 15 columns by 4 rows = 60 days on desktop for a wider landscape ratio */
     grid-template-columns: repeat(15, 1fr);
     gap: 8px;
   }
-  .gridCard {
-    padding: 24px;
-  }
+  .gridCard { padding: 20px; }
+
+  /* Badge grid 3-col stays, but a bit more padding */
+  .badgeItem { padding: 16px 8px; }
 }
