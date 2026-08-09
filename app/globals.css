@@ -275,6 +275,13 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 80px;
 }
 
+@media (min-width: 768px) {
+  .page-with-bottom-nav {
+    padding-bottom: 0;
+    padding-left: 250px; /* Make room for the sidebar */
+  }
+}
+
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -293,7 +300,6 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--bg-base);
     position: relative;
     box-shadow: none;
-    display: flex;
-    flex-direction: row; /* For sidebar layout */
+    display: block; /* Removed flex-row */
   }
 }
