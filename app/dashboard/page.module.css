@@ -9,11 +9,12 @@
 
 /* ── Shared constellation SVG ── */
 .constel {
-  position: absolute;
+  position: fixed;
   pointer-events: none;
   z-index: 0;
 }
 .constelStreakTR {
+  position: absolute;
   top: 0;
   right: 0;
   width: 120px;
@@ -21,11 +22,34 @@
   opacity: 0.65;
 }
 .constelStandingBR {
+  position: absolute;
   bottom: 0;
   right: 0;
   width: 110px;
   height: 80px;
   opacity: 0.55;
+}
+/* Page-level fixed background clusters */
+.constelPageTL {
+  top: 60px;
+  left: 0;
+  width: 160px;
+  height: 180px;
+  opacity: 0.45;
+}
+.constelPageBR {
+  bottom: 60px;
+  right: 0;
+  width: 150px;
+  height: 170px;
+  opacity: 0.4;
+}
+.constelPageMR {
+  top: 40%;
+  right: 20px;
+  width: 100px;
+  height: 120px;
+  opacity: 0.35;
 }
 
 /* ── Header ── */

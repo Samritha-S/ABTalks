@@ -74,6 +74,46 @@ export default function DashboardPage() {
   return (
     <div className={`page-with-bottom-nav ${styles.dashboard}`}>
 
+      {/* ── Page-level background constellations ── */}
+      {/* Top-left cluster */}
+      <svg className={`${styles.constel} ${styles.constelPageTL}`} viewBox="0 0 160 180" fill="none" aria-hidden="true">
+        <circle cx="20" cy="30" r="2.5" fill="#fcd34d" />
+        <circle cx="75" cy="15" r="1.8" fill="#ffffff" opacity="0.4" />
+        <circle cx="130" cy="50" r="2" fill="#fcd34d" opacity="0.6" />
+        <circle cx="50" cy="80" r="1.5" fill="#ffffff" opacity="0.35" />
+        <circle cx="110" cy="110" r="2" fill="#fcd34d" opacity="0.5" />
+        <circle cx="25" cy="140" r="1.8" fill="#ffffff" opacity="0.3" />
+        <line x1="20" y1="30" x2="75" y2="15" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+        <line x1="75" y1="15" x2="130" y2="50" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+        <line x1="20" y1="30" x2="50" y2="80" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+        <line x1="50" y1="80" x2="110" y2="110" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+        <line x1="25" y1="140" x2="50" y2="80" stroke="rgba(252,211,77,0.09)" strokeWidth="0.8" />
+      </svg>
+      {/* Bottom-right cluster */}
+      <svg className={`${styles.constel} ${styles.constelPageBR}`} viewBox="0 0 150 170" fill="none" aria-hidden="true">
+        <circle cx="130" cy="140" r="2.5" fill="#fcd34d" />
+        <circle cx="80" cy="155" r="1.8" fill="#ffffff" opacity="0.4" />
+        <circle cx="20" cy="130" r="2" fill="#fcd34d" opacity="0.6" />
+        <circle cx="100" cy="90" r="1.5" fill="#ffffff" opacity="0.35" />
+        <circle cx="40" cy="70" r="2" fill="#fcd34d" opacity="0.5" />
+        <circle cx="140" cy="55" r="1.8" fill="#ffffff" opacity="0.3" />
+        <line x1="130" y1="140" x2="80" y2="155" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+        <line x1="80" y1="155" x2="20" y2="130" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+        <line x1="130" y1="140" x2="100" y2="90" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+        <line x1="100" y1="90" x2="40" y2="70" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+        <line x1="140" y1="55" x2="100" y2="90" stroke="rgba(252,211,77,0.09)" strokeWidth="0.8" />
+      </svg>
+      {/* Mid-right floating cluster */}
+      <svg className={`${styles.constel} ${styles.constelPageMR}`} viewBox="0 0 100 120" fill="none" aria-hidden="true">
+        <circle cx="80" cy="20" r="2" fill="#fcd34d" />
+        <circle cx="40" cy="45" r="1.5" fill="#ffffff" opacity="0.4" />
+        <circle cx="85" cy="70" r="1.8" fill="#fcd34d" opacity="0.5" />
+        <circle cx="30" cy="100" r="1.5" fill="#ffffff" opacity="0.3" />
+        <line x1="80" y1="20" x2="40" y2="45" stroke="rgba(252,211,77,0.1)" strokeWidth="0.8" />
+        <line x1="40" y1="45" x2="85" y2="70" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+        <line x1="85" y1="70" x2="30" y2="100" stroke="rgba(252,211,77,0.09)" strokeWidth="0.8" />
+      </svg>
+
       {/* ── Top Bar ── */}
       <header className={styles.header}>
         <div className={styles.headerLeft}>
