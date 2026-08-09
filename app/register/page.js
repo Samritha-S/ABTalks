@@ -87,8 +87,7 @@ export default function RegisterPage() {
           <div className={styles.socialAuthBox}>
             <button
               onClick={() => {
-                localStorage.setItem('abtalks_logged_in', 'true');
-                window.location.href = '/dashboard';
+                window.location.href = 'https://accounts.google.com';
               }}
               type="button"
               className={styles.googleBtn}

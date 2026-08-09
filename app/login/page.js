@@ -125,11 +125,7 @@ export default function LoginPage() {
           <div className={styles.socialAuthBox}>
             <button
               onClick={() => {
-                setLoading(true);
-                setTimeout(() => {
-                  localStorage.setItem('abtalks_logged_in', 'true');
-                  router.push('/dashboard');
-                }, 750);
+                window.location.href = 'https://accounts.google.com';
               }}
               type="button"
               className={styles.googleBtn}
