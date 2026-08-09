@@ -11,7 +11,7 @@
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(12,13,16,0.9);
+  background: rgba(15,23,42,0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
@@ -339,13 +339,25 @@
 /* ── Desktop Optimization ── */
 @media (min-width: 768px) {
   .header {
-    padding: 24px 32px;
+    padding: 20px 48px;
   }
+  .dayBadge { font-size: 16px; }
+
   .content {
-    padding: 32px;
+    padding: 40px 48px;
+    max-width: 1280px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 32px;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
     align-items: start;
   }
+
+  .taskTitle { font-size: 34px; }
+  .taskDesc { font-size: 16px; }
+  .cardLabel { font-size: 12px; }
+  .buildItem { font-size: 16px; }
+  .submissionTitle { font-size: 20px; }
+  .communityName { font-size: 15px; }
+  .communityDesc { font-size: 15px; }
 }

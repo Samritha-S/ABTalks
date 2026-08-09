@@ -393,66 +393,135 @@
 
 /* ── Desktop Optimization ── */
 @media (min-width: 768px) {
-  .landingPage {
-    padding: 0;
+
+  /* ── Nav ── */
+  .nav {
+    background: rgba(15,23,42,0.9);
   }
-  
-  /* Hero */
-  .hero {
-    padding: 120px 20px 80px;
-    align-items: center;
-    text-align: center;
-    max-width: 900px;
+  .navInner {
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 18px 48px;
   }
-  .heroHeadline { font-size: 72px; }
-  .heroSub { font-size: 22px; max-width: 700px; margin: 0 auto 40px; }
-  .heroCtas { 
-    flex-direction: row; 
+  .logo { font-size: 22px; }
+  .menuBtn { display: none; } /* Hide hamburger, use inline links on desktop */
+
+  /* ── Hero — full-screen viewport ── */
+  .hero {
+    min-height: 100dvh;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+  .hero::before {
+    top: -200px;
+    right: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(252,211,77,0.07) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(34,197,94,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .heroLabel {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    margin-bottom: 28px;
+  }
+  .heroHeadline {
+    font-size: 88px;
+    line-height: 1.0;
+    margin-bottom: 28px;
+    max-width: 900px;
+  }
+  .heroSub {
+    font-size: 22px;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .heroCtas {
+    flex-direction: row;
     justify-content: center;
     width: auto;
+    gap: 16px;
+    margin-bottom: 48px;
   }
-  .heroCtas .btn { width: auto; min-width: 220px; }
+  .ctaPrimary { flex: none; }
+  .socialProof { justify-content: center; }
+  .proofText { font-size: 16px; }
 
-  /* Section constraints */
+  /* ── Section wrapper ── */
   .section {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 100px 40px;
+    padding: 100px 80px;
   }
+  .sectionTitle { font-size: 40px; }
+  .sectionSub { font-size: 18px; }
 
-  /* Tracks Grid */
+  /* ── Tracks Grid ── */
   .tracksList {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 24px;
+    margin-top: 32px;
   }
 
-  /* How it Works Grid */
+  /* ── How it Works Grid ── */
   .steps {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+    margin-top: 32px;
   }
-  .step {
-    padding: 32px;
-  }
+  .step { padding: 36px 28px; }
+  .stepNum { font-size: 48px; }
+  .stepTitle { font-size: 18px; }
+  .stepDesc { font-size: 15px; }
 
-  /* Community Testimonials Grid */
+  /* ── Testimonials Grid ── */
   .testimonials {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    margin-top: 32px;
   }
 
-  /* Final CTA */
+  /* ── Final CTA ── */
   .finalCta {
-    max-width: 800px;
-    margin: 100px auto 40px;
-    padding: 100px 20px;
+    margin: 0 80px 80px;
+    padding: 120px 80px;
+    border-radius: 32px;
   }
+  .finalCtaTitle { font-size: 56px; }
+  .finalCtaSub { font-size: 20px; }
   .finalCtaBtn {
-    max-width: 300px;
-    margin: 0 auto 16px;
+    max-width: 360px;
+    margin: 0 auto 20px;
   }
+  .finalCtaNote { font-size: 16px; }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .footerLogo { font-size: 20px; }
+  .footerTag { font-size: 14px; }
+  .footerLinks a { font-size: 14px; }
 }

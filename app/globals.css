@@ -290,9 +290,19 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Selection ─── */
 ::selection { background: var(--accent-yellow-dim); color: var(--accent-yellow); }
 
-/* ─── Desktop centering ─── */
+/* ─── Desktop scaling ─── */
 @media (min-width: 768px) {
-  body { background: var(--bg-base); }
+  :root {
+    --page-pad: 40px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+  }
+
+  body {
+    font-size: 17px;
+    background: var(--bg-base);
+  }
+
   .app-shell {
     width: 100%;
     min-height: 100dvh;
@@ -301,4 +311,35 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: none;
     display: block;
   }
+
+  /* Buttons */
+  .btn {
+    padding: 14px 28px;
+    font-size: 16px;
+    gap: 10px;
+  }
+  .btn-sm { padding: 10px 20px; font-size: 14px; }
+  .btn-lg { padding: 18px 40px; font-size: 18px; }
+
+  /* Cards */
+  .card { padding: 24px; }
+  .card-surface { padding: 24px; }
+
+  /* Inputs */
+  .input-field {
+    padding: 16px 18px;
+    font-size: 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Avatars */
+  .avatar { width: 44px; height: 44px; font-size: 16px; }
+  .avatar-lg { width: 64px; height: 64px; font-size: 22px; }
+  .avatar-sm { width: 34px; height: 34px; font-size: 13px; }
+
+  /* Badges */
+  .badge { padding: 5px 14px; font-size: 12px; }
+
+  /* Tags */
+  .tag { padding: 6px 14px; font-size: 13px; }
 }
