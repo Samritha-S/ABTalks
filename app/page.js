@@ -8,6 +8,7 @@ import styles from './page.module.css';
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -16,7 +17,12 @@ export default function LandingPage() {
     return () => clearInterval(t);
   }, []);
 
-  const current = testimonials[testimonialIdx];
+  function handleMouseMove(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({ x, y });
+  }
 
   return (
     <div className={styles.landing}>
@@ -51,7 +57,15 @@ export default function LandingPage() {
       )}
 
       {/* ── Hero ── */}
-      <section className={styles.hero}>
+      <section
+        className={styles.hero}
+        onMouseMove={handleMouseMove}
+        style={{
+          '--mouse-x': `${mousePos.x}px`,
+          '--mouse-y': `${mousePos.y}px`
+        }}
+      >
+        <div className={styles.heroGlow} />
         <div className={styles.heroLabel}>
           <span className={styles.dot} />
           BUILD IN PUBLIC. GROW TOGETHER.
